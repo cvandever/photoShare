@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+   <div class="mt-5 pt-5 container-lg bg-transparent text-light">
+    <body>
+       <form action = "{{ url_for('import_file') }}" method = "POST" 
+          enctype = "multipart/form-data" class = "form-control form-control-sm">
+          <input type = "file" name = "file" class = "form-control" multiple/>
+          <br>
+          <input type = "submit" class = "form-control bg-primary"/>
+       </form>
+    </body>
+   </div>
+ </html>
+{% endblock %}

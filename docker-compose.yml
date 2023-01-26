@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  web:
+    build: app/
+    expose:
+      - "5000"
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.env
+    volumes:
+      - C:\Users\cvandever\files\:/app/static/files/
+    container_name: app_server
+
+  nginx:
+    build: nginx/
+    ports:
+      - 80:80
+    container_name: proxy_server
+    depends_on:
+      - web

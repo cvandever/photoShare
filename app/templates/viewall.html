@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+   <div class="mt-5 pt-5">
+      {% for file in files %}   
+         <section class="row align-items-center gx-5 mr-lg ml-lg mt-sm mb-sm">
+            {% if '.mp4' not in file %}
+               <a href="{{ url_for('static', filename='files/' + file) }}">
+                  <img class="img-fluid rounded mx-auto d-block" src="{{ url_for('static', filename='files/' + file) }}">
+               </a>
+            {% else %}
+               <a href="{{ url_for('static', filename='files/' + file) }}">
+                  <video height="100%" width="100%" class="embed-responive-item" controls src="{{ url_for('static', filename='files/' + file) }}">
+                  </video> 
+               </a>
+            {% endif %}
+         </section>
+         <br>
+      {% endfor %}
+   </div>
+ </html>
+{% endblock %}
